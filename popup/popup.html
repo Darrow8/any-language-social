@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Any Language Social</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="header">
+        <div class="logo" aria-hidden="true">A<span>文</span></div>
+        <div>
+          <h1>Any Language</h1>
+          <p>for X / Twitter</p>
+        </div>
+        <label class="switch" title="Enable translation">
+          <input id="enabled" type="checkbox">
+          <span></span>
+        </label>
+      </header>
+
+      <section class="card">
+        <label for="target-language">Translate posts into</label>
+        <div class="select-wrap">
+          <select id="target-language"></select>
+        </div>
+
+        <label for="provider">Translation method</label>
+        <div class="select-wrap">
+          <select id="provider">
+            <option value="auto">Automatic (recommended)</option>
+            <option value="local">On-device only</option>
+            <option value="remote">Online service</option>
+          </select>
+        </div>
+
+        <label class="check-row">
+          <input id="show-original" type="checkbox">
+          <span>Keep the original post visible</span>
+        </label>
+      </section>
+
+      <div class="status" role="status">
+        <span class="status-dot"></span>
+        <span id="status-text">Ready on X</span>
+      </div>
+
+      <p class="privacy">On-device translation is used first. Automatic mode uses MyMemory only when needed.</p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

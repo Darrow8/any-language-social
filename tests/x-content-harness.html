@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>X content script harness</title>
+    <link rel="stylesheet" href="../content/x.css">
+  </head>
+  <body>
+    <article>
+      <div data-testid="tweetText" lang="es">Hola desde X</div>
+    </article>
+    <script>
+      globalThis.chrome = {
+        storage: {
+          sync: {
+            get: async (defaults) => ({
+              ...defaults,
+              targetLanguage: "en",
+              provider: "remote"
+            })
+          },
+          onChanged: { addListener() {} }
+        },
+        runtime: {
+          sendMessage: async () => ({
+            ok: true,
+            translatedText: "Hello from X",
+            provider: "test"
+          })
+        }
+      };
+    </script>
+    <script src="../content/x.js"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+.als-translation {
+  --als-accent: rgb(29, 155, 240);
+  box-sizing: border-box;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--als-accent);
+  border-radius: 0 10px 10px 0;
+  background: color-mix(in srgb, var(--als-accent) 8%, transparent);
+  color: inherit;
+  font: inherit;
+  white-space: pre-wrap;
+}
+
+.als-translation__header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+  color: rgb(83, 100, 113);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+}
+
+.als-translation__mark {
+  color: var(--als-accent);
+  font-size: 13px;
+}
+
+.als-translation__text {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  overflow-wrap: anywhere;
+}
+
+.als-translation--loading .als-translation__text {
+  min-height: 20px;
+  border-radius: 5px;
+  background: linear-gradient(
+    90deg,
+    rgba(120, 120, 120, 0.08) 25%,
+    rgba(120, 120, 120, 0.18) 50%,
+    rgba(120, 120, 120, 0.08) 75%
+  );
+  background-size: 200% 100%;
+  animation: als-shimmer 1.3s infinite;
+}
+
+.als-original-hidden {
+  display: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .als-translation__header {
+    color: rgb(139, 152, 165);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .als-translation--loading .als-translation__text {
+    animation: none;
+  }
+}
+
+@keyframes als-shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
